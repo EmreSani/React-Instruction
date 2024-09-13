@@ -1,0 +1,42 @@
+.header .avatar {
+	overflow: hidden;
+	width: 165px;
+	height: 165px;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	border-radius: 50%;
+}
+
+.header .avatar img {
+	width: 100%;
+}
+
+
+.header .name {
+    margin: 34px 0;
+}
+
+.header .name h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #FFF;
+	letter-spacing: 1px;
+    margin: 0 0 5px;
+    
+}
+
+.header .name span {
+    color: #d8d8e9;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+
+@media only screen and (max-height: 600px) {
+    .header .name {
+        margin: 15px 0;
+    }
+}

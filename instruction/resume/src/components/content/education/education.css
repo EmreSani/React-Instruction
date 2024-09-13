@@ -1,0 +1,29 @@
+.educations .top-item {
+	margin-top: 0 !important;
+}
+
+.educations .resume-item {
+	background: #fff;
+	margin-top: 30px;
+	max-height: 140px;
+	overflow: hidden;
+}
+
+.educations .resume-item h2 {
+	font-size: 16px;
+	font-weight: 700;
+	margin: 0 0 10px;
+}
+
+.educations .resume-item span {
+	color: #666;
+	display: block;
+	font-size: 12px;
+	font-weight: 300;
+	margin: 0 0 10px;
+}
+
+.educations .resume-item p {
+	line-height: 20px;
+	margin-bottom: 0;
+}
