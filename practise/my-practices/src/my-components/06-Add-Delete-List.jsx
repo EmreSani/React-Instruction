@@ -1,10 +1,15 @@
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 import { FaLongArrowAltUp, FaLongArrowAltDown, FaTrashAlt } from "react-icons/fa";
 
 
 export const AddDeleteList = () => {
 
+    let inputElement = useRef();
+
     let [liItems, setLiItems] = useState([]);
+    let [display, setDisplay] = useState("d-none");
+    let [oldLiItems, setOldLiItems] = useState([]);
+    let [display2, setDisplay2] = useState("d-none");
 
     // addItem
     const addItem = (event)=>{
@@ -13,18 +18,27 @@ export const AddDeleteList = () => {
             setLiItems([...liItems, inputVal]);
         }
         
-        document.querySelector("input").value = "";
-        document.querySelector("input").focus();
+        inputElement.current.value = "";
+        inputElement.current.focus();
     }
 
     // clearItems
     const clearItems = ()=>{
+        setOldLiItems(liItems);
         setLiItems([]);
+
+        setDisplay("d-block");
+        setTimeout(()=>setDisplay("d-none"), 4000);
     }
 
     // deleteItem
     const deleteItem = (i)=>{
+        setOldLiItems(liItems);
         setLiItems(liItems.filter((item)=>liItems.indexOf(item) != i));
+
+        setDisplay("d-block");
+        setTimeout(()=>setDisplay("d-none"), 4000);
+
     }
 
     // upItem
@@ -47,15 +61,28 @@ export const AddDeleteList = () => {
         }
     }
 
+    // undo
+    const undo = ()=>{
+        setLiItems(oldLiItems);
+
+        setDisplay("d-none");
+        setDisplay2("d-block");
+        setTimeout(()=>setDisplay2("d-none"), 4000);
+    }
+
     let style = 'border bg-success text-light p-2 rounded position-absolute';
 
   return (
     <div className='m-3'>
-        <div className='d-flex justify-content-center d-none'>
-            <p className={style}>Silme işlemi gerçekleştirildi. <u style={{cursor:"pointer"}}>Geri al</u></p>
+        <div className={`d-flex justify-content-center ${display}`}>
+            <p className={style}>Silme işlemi gerçekleştirildi. <u style={{cursor:"pointer"}} onClick={undo}>Geri al</u></p>
+        </div>
+
+        <div className={`d-flex justify-content-center ${display2}`}>
+            <p className={style}>✅ İşlem geri alındı.</p>
         </div>
         
-        <input type="text" className='m-1 p-1 rounded' id="" />
+        <input type="text" className='m-1 p-1 rounded' ref={inputElement} />
         <button className='m-1 p-1 rounded' onClick={addItem}>Add</button>
         <button className='m-1 p-1 rounded' onClick={clearItems}>Clear</button>
         <ul>

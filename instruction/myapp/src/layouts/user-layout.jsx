@@ -11,10 +11,10 @@ export const UserLayout = () => {
 			<Header />
 			<Container className="flex-grow-1 my-4">
 				<Row>
-					<Col sm={4}>
+					<Col sm={4} lg={3} xl={2}>
 						<MainMenu />
 					</Col>
-					<Col sm={8}>
+					<Col sm={8} lg={9} xl={10}>
 						<Outlet />
 					</Col>
 				</Row>

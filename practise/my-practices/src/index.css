@@ -1,0 +1,7 @@
+.menu p {
+    cursor: pointer;
+}
+
+.menu p:hover {
+    color: lightgreen;
+}
