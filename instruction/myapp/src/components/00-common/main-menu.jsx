@@ -116,19 +116,26 @@ export const MainMenu = () => {
 						Style 5
 					</Nav.Link>
 
-          <Nav.Link
+					<Nav.Link
 						to="/customers"
 						as={Link}
 						active={pathname === "/customers" ? true : false}
 					>
 						Customers
 					</Nav.Link>
-          <Nav.Link
+					<Nav.Link
 						to="/use-navigate"
 						as={Link}
 						active={pathname === "/use-navigate" ? true : false}
 					>
 						UseNavigate
+					</Nav.Link>
+					<Nav.Link
+						to="/converter"
+						as={Link}
+						active={pathname === "/converter" ? true : false}
+					>
+						Exchange
 					</Nav.Link>
 				</Nav>
 			</Card.Body>
