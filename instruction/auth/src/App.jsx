@@ -1,15 +1,11 @@
 import React from "react";
 import { StoreProvider } from "./store";
-import { Display } from "./components/display";
-import { Form } from "./components/form";
+import { AppRouter } from "./router";
 
 export const App = () => {
 	return (
 		<StoreProvider>
-			<div>
-				<Display />
-				<Form />
-			</div>
+			<AppRouter />
 		</StoreProvider>
 	);
 };
