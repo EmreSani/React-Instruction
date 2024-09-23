@@ -2,6 +2,6 @@
     cursor: pointer;
 }
 
-.menu p:hover {
-    color: lightgreen;
+.menu p:hover, .link:hover {
+    color: lightgreen !important;
 }

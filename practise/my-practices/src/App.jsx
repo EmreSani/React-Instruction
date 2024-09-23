@@ -14,13 +14,19 @@
 
 // import { Home } from "./my-components/07-Searchbar Cards/Home.jsx";
 
-import { Header } from "./my-components/08-API-Router/Header"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./my-components/08-API-Router/Layout"
+// import { Header } from "./my-components/08-API-Router/Header"
+import { Home } from "./my-components/08-API-Router/Home"
 import { Users } from "./my-components/08-API-Router/Users"
-
+import { Todos } from "./my-components/08-API-Router/Todos"
+import { Footer } from "./my-components/08-API-Router/Footer"
+// import { useState } from "react"
 
 
 function App() {
   
+  // let [menuItem, setMenuItem] = useState("Home");
 
   return (
     <>
@@ -35,8 +41,23 @@ function App() {
       {/* <Login/> */}
       {/* <AddDeleteList/> */}
       {/* <Home/> */}
-      <Header/>
-      <Users/>
+      {/* <Header setMenuItem={setMenuItem}/>
+      {menuItem == "Home" && <Home/>}
+      {menuItem == "Users" && <Users/>}
+      {menuItem == "Todos" && <Todos/>}
+      <Footer/> */}
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Home/>}/>
+            <Route path="users" element={<Users/>}/>
+            <Route path="todos" element={<Todos/>}/>
+          </Route>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+      
     </>
   )
 }
